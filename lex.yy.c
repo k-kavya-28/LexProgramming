@@ -360,9 +360,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[11] =
+static const flex_int16_t yy_accept[15] =
     {   0,
-        0,    0,    4,    3,    2,    1,    2,    2,    1,    0
+        0,    0,    4,    3,    3,    0,    0,    0,    0,    0,
+        1,    0,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -370,9 +371,9 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    3,    1,    1,    1,    1,    4,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    5,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,33 +398,35 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[6] =
     {   0,
-        1,    1,    2
+        1,    2,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[12] =
+static const flex_int16_t yy_base[18] =
     {   0,
-        0,    0,    7,    8,    0,    2,    0,    0,    0,    8,
-        4
+       11,   10,   13,   16,    0,    9,    6,    7,    5,    3,
+        0,    2,    0,   16,    4,    1,    0
     } ;
 
-static const flex_int16_t yy_def[12] =
+static const flex_int16_t yy_def[18] =
     {   0,
-       10,    1,   10,   10,   11,   10,   11,   11,    6,    0,
-       10
+       15,   15,   14,   14,   14,   16,   17,   16,    8,   17,
+       10,    8,    8,    0,   14,   14,   14
     } ;
 
-static const flex_int16_t yy_nxt[12] =
+static const flex_int16_t yy_nxt[22] =
     {   0,
-        4,    5,    6,    8,    9,    7,   10,    3,   10,   10,
-       10
+       10,    8,    6,    7,    4,    4,   13,   11,   12,    9,
+       11,    9,   14,    5,    5,    3,   14,   14,   14,   14,
+       14
     } ;
 
-static const flex_int16_t yy_chk[12] =
+static const flex_int16_t yy_chk[22] =
     {   0,
-        1,    1,    1,    6,    6,   11,    3,   10,   10,   10,
-       10
+       17,   16,    5,    5,   15,   15,   12,   10,    9,    8,
+        7,    6,    3,    2,    1,   14,   14,   14,   14,   14,
+       14
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -440,12 +443,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "3.whitespace_collapse.l"
-#line 2 "3.whitespace_collapse.l"
-// Write a LEX program that copies a file, replacing each nonempty sequence of white spaces
-// by a single blank.
-#line 448 "lex.yy.c"
-#line 449 "lex.yy.c"
+#line 1 "4.remove_comments.l"
+#line 2 "4.remove_comments.l"
+    /*Lex program to remove comments from C program and save it in a file*/
+#line 450 "lex.yy.c"
+/*starting character sequence for multiline comment*/
+/*ending character sequence for multiline comment*/
+#line 453 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -662,10 +666,10 @@ YY_DECL
 		}
 
 	{
-#line 8 "3.whitespace_collapse.l"
+#line 10 "4.remove_comments.l"
 
 
-#line 669 "lex.yy.c"
+#line 673 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -692,13 +696,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 11 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 8 );
+		while ( yy_base[yy_current_state] != 16 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -724,26 +728,20 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "3.whitespace_collapse.l"
-{ /* Pattern for recognizing multiple spaces */
-fprintf(yyout," ");
-}
+#line 12 "4.remove_comments.l"
+
 	YY_BREAK
 case 2:
-/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 13 "3.whitespace_collapse.l"
-{ /* spaces followed by newline followed by
-spaces */
-fprintf(yyout," ");
-}
+#line 13 "4.remove_comments.l"
+
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 "3.whitespace_collapse.l"
+#line 15 "4.remove_comments.l"
 ECHO;
 	YY_BREAK
-#line 747 "lex.yy.c"
+#line 745 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1040,7 +1038,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 11 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1068,11 +1066,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 11 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 10);
+	yy_is_jam = (yy_current_state == 14);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1748,16 +1746,17 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 18 "3.whitespace_collapse.l"
+#line 15 "4.remove_comments.l"
 
 
-int main()
-{
-// Point yyin to a file with text, this acts as input to
-// our program
-yyin = fopen("text1.txt","r");
-// Point yyout to output file.
-yyout = fopen("text2.txt","w");
-yylex();
-return 0;
+int main() {
+    yyin=fopen("input.c","r");
+    yyout=fopen("output.c","w");
+
+    yylex();
+
+    fclose(yyin);
+    fclose(yyout);
+
+    return 0;
 }

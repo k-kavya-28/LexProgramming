@@ -1,4 +1,24 @@
+Lex is a computer program that generates lexical analyzers.
+LEX reads rules you provide and creates a C program that understands and processes specific patterns in input text.
+LEX makes it easier and faster to create programs that understand specific patterns in text by generating the complex parts for you, saving time and making your code clearer. So, even if we can directly write the C one we use lex.
 //      ->single line comments
 /*   */ ->multiline comments or code that is temporarily not in use
 %{   %} ->
-Lex is a computer program that generates lexical analyzers.
+In LEX, %{ and %} are used to enclose C code that will be directly copied to the generated lexer code. This is often used for including header files, defining global variables, and adding other C code that is not related to the lexing rules themselves.
+Eg:
+lex
+Copy code
+%{ 
+#include <stdio.h>
+int count = 0;
+%}
+The code inside %{ and %} is not part of the lexing rules but can provide necessary context or functionality to your LEX program.
+
+during exams, implement on windows
+
+4.remove_comments.l explanation->
+start \/\* -> it's /* */ and sbke aage ek \ laga ko for syntax
+%% -> rule section and if it's before main, it denotes driver function
+The first regular expression, \/\/(.*);, matches a comment in C syntax. The \/\/ characters are the start of the comment, and the .* characters match any character, zero or more times. This means that the comment can be any number of characters long, and can contain any characters except for a newline character (\n).
+\/\/(.*);	    ->Matches a comment in C syntax
+{start}.*{end};	->Matches a string enclosed in delimiters
