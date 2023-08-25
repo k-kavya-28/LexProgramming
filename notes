@@ -1,0 +1,4 @@
+//      ->single line comments
+/*   */ ->multiline comments or code that is temporarily not in use
+%{   %} ->
+Lex is a computer program that generates lexical analyzers.
