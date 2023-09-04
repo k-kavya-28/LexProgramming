@@ -9,10 +9,14 @@ end \*\/
 
 %%
 
-\/\/(.*);
-{start}.*{end};
+\/\/(.*) {};
+\/\*(.*\n)*.*\*\/ {};
 
 %%
+
+int yywrap(){
+    return 1;
+}
 
 int main() {
     yyin=fopen("input.c","r");
