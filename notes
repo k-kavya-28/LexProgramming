@@ -24,3 +24,10 @@ The first regular expression, \/\/(.*);, matches a comment in C syntax. The \/\/
 {start}.*{end};	->Matches a string enclosed in delimiters
 Part 2 ((.*\n)*): Matches and captures multiple lines of the multiline comment content, separated by newline characters.
 Part 3 (.*): Matches and captures the content within a single line of the multiline comment, excluding newline characters.
+
+
+7.piglatin_lex.l
+To append a single character to a string, you should use strncat or directly assign it.
+printf("%s", s); prints the string s to the standard output (usually the console or terminal).
+fprintf(yyout, "%s", s); prints the string s to the file specified by the yyout stream, which should be previously opened for writing using fopen.)
+pigLatin - it's a Lex file for performing Pig Latin transformations on words in an input texts

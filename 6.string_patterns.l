@@ -5,33 +5,28 @@
 %}
 
 d [0-9]
-d9 [1-9][0-9][0-9][0-9]
 
 %%
 
-(({d})*1{d}{9}) {printf("%s is a string having 10th symbol from right end is 1 \n",yytext);}
- 
+(({d})*1{d}{9}) {printf("%s is a string having 1 as the 10th symbol from right end.  \n",yytext);}
+
+{d}{d}{d}{d} {
+    int num = atoi(yytext); //Converting matched digits to an integer
+    int sum=0;
+    int temp=num;
+    while(temp>0){
+        sum+=temp%10;
+        temp/=10;
+    }
+    if(sum==9){
+        printf("%s is a string such that sum of digits is 9. \n",yytext);
+    }
+    else{
+        printf("%s Invalid string \n",yytext);
+    }
+}
 
 %%
-
-// int sum(int n){
-//     int s=0;
-//     while(n>0){
-//         s+=n%10;
-//         n/=10;
-//     }
-//     return s;
-// }
-
-// int main(){
-//     int num;
-//     for(num=1000; num<=9999; num++){
-//         if(sum(num)==9){
-//             printf("%d ",num);
-//         }
-//     }
-//     return 0;
-// }
 
 int yywrap(){
     return 1;
