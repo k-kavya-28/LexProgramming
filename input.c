@@ -1,5 +1,14 @@
-
+// single line comment 
+/*
+	This is a
+	multi-line comment
+*/
 #include <stdio.h>
+// single line comment 
+/*
+	This is a
+	multi-line comment
+*/
 int main(void)
 {
 	// single line comment 
@@ -12,3 +21,8 @@ int main(void)
 	printf("Boom");
 	return 0;
 }
+// single line comment 
+/*
+	This is a
+	multi-line comment
+*/

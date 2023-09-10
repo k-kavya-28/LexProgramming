@@ -3,7 +3,7 @@
 %}
 
 /*starting character sequence for multiline comment*/
-start \/\*
+start \/\/*
 /*ending character sequence for multiline comment*/
 end \*\/ 
 

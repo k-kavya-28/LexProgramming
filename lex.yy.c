@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 4
-#define YY_END_OF_BUFFER 5
+#define YY_NUM_RULES 3
+#define YY_END_OF_BUFFER 4
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,28 +360,28 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[13] =
+static const flex_int16_t yy_accept[14] =
     {   0,
-        0,    0,    5,    2,    1,    2,    3,    2,    2,    1,
-        1,    0
+        0,    0,    4,    3,    3,    0,    1,    0,    0,    0,
+        1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    3,    1,    1,    1,    1,    4,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    2,    3,    3,    3,    2,    3,
-        3,    3,    2,    3,    3,    3,    3,    3,    2,    3,
-        3,    3,    3,    3,    2,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    1,    1,    2,    3,    4,    3,
 
-        2,    3,    3,    3,    2,    3,    3,    3,    3,    3,
-        2,    3,    3,    3,    3,    3,    2,    3,    3,    3,
-        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -400,33 +400,31 @@ static const YY_CHAR yy_ec[256] =
 
 static const YY_CHAR yy_meta[5] =
     {   0,
-        1,    2,    2,    3
+        1,    2,    1,    1
     } ;
 
 static const flex_int16_t yy_base[16] =
     {   0,
-        0,    0,   19,    4,    8,    0,    0,    0,    0,    0,
-        0,   20,   11,   14,   15
+       10,    9,   12,   15,    0,    4,    0,    0,    0,    7,
+        0,    0,   15,    8,    0
     } ;
 
 static const flex_int16_t yy_def[16] =
     {   0,
-       12,    1,   12,   12,   12,   13,   14,    4,   13,    5,
-       15,    0,   12,   12,   12
+       14,   14,   13,   13,   13,   13,   15,    6,    6,    6,
+       15,    6,    0,   13,   13
     } ;
 
-static const flex_int16_t yy_nxt[25] =
+static const flex_int16_t yy_nxt[20] =
     {   0,
-        4,    5,    4,    6,    7,    8,    8,    9,    7,   10,
-       10,   11,    9,    9,    7,    7,   11,   11,   12,    3,
-       12,   12,   12,   12
+       11,   13,    6,    7,    8,    9,   10,    8,    4,    4,
+       12,   13,    5,    5,    3,   13,   13,   13,   13
     } ;
 
-static const flex_int16_t yy_chk[25] =
+static const flex_int16_t yy_chk[20] =
     {   0,
-        1,    1,    1,    1,    4,    4,    4,    4,    5,    5,
-        5,    5,   13,   13,   14,   14,   15,   15,    3,   12,
-       12,   12,   12,   12
+       15,    0,    5,    5,    6,    6,    6,    6,   14,   14,
+       10,    3,    2,    1,   13,   13,   13,   13,   13
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -443,16 +441,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "7.piglatin_lex.l"
-#line 2 "7.piglatin_lex.l"
-/*2. Write a LEX program to perform following operations.
-Assume the file is containing a sequence of words (groups of letters) separated by white space. Every
-time you encounter a word:
-a. If the first letter is a consonant, move it to the end of the word and then add ay.
-b. If the first letter is a vowel, just add ay to the end of the word. All non-letters are copied intact to
-the output.*/
-#line 455 "lex.yy.c"
-#line 456 "lex.yy.c"
+#line 1 "4.remove_comments.l"
+#line 2 "4.remove_comments.l"
+    /*Lex program to remove comments from C program and save it in a file*/
+#line 448 "lex.yy.c"
+/*starting character sequence for multiline comment*/
+/*ending character sequence for multiline comment*/
+#line 451 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -669,10 +664,10 @@ YY_DECL
 		}
 
 	{
-#line 14 "7.piglatin_lex.l"
+#line 10 "4.remove_comments.l"
 
 
-#line 676 "lex.yy.c"
+#line 671 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -699,13 +694,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 13 )
+				if ( yy_current_state >= 14 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 20 );
+		while ( yy_base[yy_current_state] != 15 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -731,46 +726,21 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 16 "7.piglatin_lex.l"
-{
-    //copy yytext to an array and append "ay" to it
-    char s[100];
-    strcpy(s,yytext);
-    strcat(s,"ay");
-    printf("%s",s);
-    fprintf(yyout,"%s",s);
-}
+#line 12 "4.remove_comments.l"
+{};
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 25 "7.piglatin_lex.l"
-{
-    // move first letter to the end of word and then add "ay"
-    char s[100];
-    strcpy(s,yytext+1);  // Copy everything except the first character
-    strncat(s,yytext,1); //same as strcat(s,yytext[0]) i.e. append the first character
-    strcat(s,"ay");
-    printf("%s",s);         // Print the transformed word to the console
-    fprintf(yyout,"%s",s);  // Print the transformed word to the output file
-}
+#line 13 "4.remove_comments.l"
+{};
 	YY_BREAK
 case 3:
-/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 35 "7.piglatin_lex.l"
-{
-    /*Non-letter characters are copied as it is*/
-    printf("%s",yytext);
-    fprintf(yyout,"%s",yytext);
-}
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-#line 41 "7.piglatin_lex.l"
+#line 15 "4.remove_comments.l"
 ECHO;
 	YY_BREAK
-#line 774 "lex.yy.c"
+#line 744 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1067,7 +1037,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 13 )
+			if ( yy_current_state >= 14 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1095,11 +1065,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 13 )
+		if ( yy_current_state >= 14 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 12);
+	yy_is_jam = (yy_current_state == 13);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1775,18 +1745,21 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 41 "7.piglatin_lex.l"
+#line 15 "4.remove_comments.l"
 
 
 int yywrap(){
     return 1;
 }
 
-int main(){
-    yyin=fopen("pigLatinInput.txt","r");
-    yyout=fopen("pigLatinOutput.txt","w");
+int main() {
+    yyin=fopen("input.c","r");
+    yyout=fopen("output.c","w");
+
     yylex();
+
     fclose(yyin);
     fclose(yyout);
+
     return 0;
 }
