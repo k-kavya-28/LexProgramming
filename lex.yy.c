@@ -436,16 +436,11 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "5_3.l"
-#line 2 "5_3.l"
-/*3. Write a Lex program to identify and count the number of even and odd numbers in a given input
-file.*/
-
-#include<stdio.h>
-int ecount,ocount=0;
-
-#line 448 "lex.yy.c"
-#line 449 "lex.yy.c"
+#line 1 "5_4.l"
+#line 2 "5_4.l"
+/*4. Write lex program to identify the numbers whose individual digits are in ascending order.*/
+#line 443 "lex.yy.c"
+#line 444 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -662,10 +657,10 @@ YY_DECL
 		}
 
 	{
-#line 12 "5_3.l"
+#line 7 "5_4.l"
 
 
-#line 669 "lex.yy.c"
+#line 664 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -724,24 +719,31 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 "5_3.l"
+#line 9 "5_4.l"
 {
 	int num = atoi(yytext);
-	if(num % 2 == 0) {
-		printf("Even number: %d\n", num);
-		ecount++;
-	} else {
-		printf("Odd number: %d\n", num);
-		ocount++;
+	int flag = 1;
+	int prev = num % 10;
+	num /= 10;
+	while(num > 0) {
+		if(num % 10 > prev) {
+			flag = 0;
+			break;
+		}
+		prev = num % 10;
+		num /= 10;
+	}
+	if(flag) {
+		printf("%s\n", yytext);
 	}
 }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 25 "5_3.l"
+#line 27 "5_4.l"
 ECHO;
 	YY_BREAK
-#line 745 "lex.yy.c"
+#line 747 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1746,20 +1748,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 25 "5_3.l"
+#line 27 "5_4.l"
 
 
-int yywrap(){
-    return 1;
-}
-
-int main(){
-    yyin=fopen("5_3_input.txt","r");
-
-    yylex();
-
-    printf("Even Count: %d\n",ecount);
-    printf("Odd Count: %d\n",ocount);
-    fclose(yyin);
-    return 0;
+int main() {
+	yyin = fopen("5_4_input.txt", "r");
+	yylex();
+	fclose(yyin);
+	return 0;
 }
